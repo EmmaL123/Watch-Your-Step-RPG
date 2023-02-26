@@ -7,6 +7,8 @@ y = 1
 
 inventory = []
 
+reaction = ("Congratulations, you get it right!", "You get it wrong. The correct answer is option 3. Unlucky you but good try")
+
 math_message = "\nEmma: You reach the math area. You have to do  math problem. You will gain 3 health for a correct answer, and you will lose 5 health for an incorrect answer. Good luck, and I hope you get it all correct."
 
 name = input("What is your name? ") #PLOT
@@ -95,28 +97,27 @@ while not (x == 10 and y == 10):
       print("[4] 92848205410")
       solution1 = int(input("solution1: "))
       if solution1 == 3:
-        print("Congratulations, you get it right!")
+        print(reaction [0])
         health+=3
         print(f"Health: {health}")
       else:
-        print("Incorrect. The correct answer is 98918100110. Unlucky you but good try.")
+        print(reaction [1])
         health-=5
         print(f"Health: {health}")
     elif x==6 and y==1:
       print(math_message)
-      
       print("\nSecond question:Guess how many +10 fancy gisele potion is in the mountain?")
       print("[1] 0")
-      print("[2] 2")
-      print("[3] 3")
+      print("[2] 1")
+      print("[3] 2")
       print("[4] 6")
       solution2 = int(input("solution2: "))
-      if solution2 == 2:
-        print("Congratulations, you get it right!")
+      if solution2 == 3:
+        print(reaction [0])
         health+=3
         print(f"Health: {health}")
       else:
-        print("Incorrect. The correct answer is 2. Unlucky you but good try.")
+        print(reaction [1])
         health-=5
         print(f"Health: {health}")
         
@@ -129,11 +130,11 @@ while not (x == 10 and y == 10):
       print("[4] cannot simplify")
       solution3 = int(input("solution3: "))
       if solution3 == 3:
-        print("Congratulations, you get it right!")
+        print(reaction [0])
         health+=3
         print(f"Health: {health}")
       else: 
-        print("Incorrect. The correct answer is 4a-3b-8c. Unlucky you but good try.")
+        print(reaction [1])
         health-=5
         print(f"Health: {health}")
 
