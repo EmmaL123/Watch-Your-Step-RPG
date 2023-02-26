@@ -1,0 +1,226 @@
+# START INFO
+# Emma's Code
+
+health = 20
+x = 1
+y = 1
+
+inventory = []
+
+math_message = "\nEmma: You reach the math area. You have to do  math problem. You will gain 3 health for a correct answer, and you will lose 5 health for an incorrect answer. Good luck, and I hope you get it all correct."
+
+name = input("What is your name? ") #PLOT
+print(f"\nWelcome, {name}, to Watch Your Step :)")
+print("\nSomething strange has been happening in the world lately. You probably have not noticed it until now, but we have. People have been disappearing from your world and entering this world. You are now stranded on Mt. Grace at (1, 1).") 
+print("\nYou must get to the portal that will transport you back home without dying. Your health is at 20. There will be opportunities to gain more, and be sure to not lose all of it. Good luck, and we wish you Godspeed.")
+
+print(f"\nPlayer location: ({x}, {y})")
+print(f"Health: {health}")
+
+while not (x == 10 and y == 10):
+    print("\nEnter how much you would like to move along each axis: ")
+    dx = int(input("x-axis: "))
+    dy = int(input("y-axis: "))
+    x += dx
+    y += dy
+    print(f"\nPlayer location: ({x}, {y})")
+    
+    if x == 2 and y ==3: # TRIVIA
+      print("\nEmma: What now? Oh, lucky you. You have arrived at a spot where you get to answer a random trivia question. If you get it right, you will gain some health, but if you get it wrong... Well, let's just say you will be one step closer to death.")
+      answer1 = input("Which of the following is not a bird? [B]ananaquit, [S]atanic Goatsucker, or [W]indy Fluff? ")
+      if answer1.upper() == "W":
+        print("Correct!")
+        health += 2
+        print(f"Health: {health}")
+      else:
+        print("Wrong!")
+        health -= 1
+        print(f"Health: {health}")     
+    elif x == 3 and y ==8: # TRIVIA
+      print("\nEmma: Time for some random trivia! Try your best to get it right. If you get it right, you will gain some health, but if you get it wrong... Well, let's just say you will be one step closer to death. I hope you know your trees.")
+      answer2 = input("Which of the following is not a tree? [H]alfmens, [C]ow Pine, or [V]egetable sheep?")
+      if answer2.upper() == "C":
+        print("Correct!")
+        health += 2
+        print(f"Health: {health}")
+      else:
+        print("Wrong!")
+        health -= 1
+        print(f"Health: {health}")   
+    elif x == 8 and y ==4: # TRIVIA
+      print("\nEmma: How well do you know your mushrooms? If you get this question right, you will gain some health, but if you get it wrong... Well, let's just say you will be one step closer to death.")
+      answer3 = input("Which of the following is not a mushroom? [M]aniacal Truffle, [H]otlips Disco, [D]evil's fingers? ")
+      if answer3.upper() == "M":
+        print("Correct!")
+        health += 2
+        print(f"Health: {health}")
+      else:
+        print("Wrong!")
+        health -= 1
+        print(f"Health: {health}")  
+    elif x < 1 or x > 10 or y < 1 or y >10: # CLIFF
+      print("\nEmma: OH NO! You have fallen off a cliff. You grab a ledge and hang on as tight as you can, but it is no use. You plunge for what seems like ages but are only falling for a few seconds. Hopefully that fall does not kill you.")
+      health -= 20
+      print(f"Health: {health}")
+    elif x == 7 and y == 3: # ROPE
+      print("Emma: You see some rope on the ground.")
+      get_rope = input("Would you like to pick up the rope? [Y]es or [N]o? ")
+      if get_rope == "Y": 
+        inventory.append("rope")
+      else:
+        print("That's too bad.")
+    elif x == 5 and y == 7: # TREE
+      print("Emma: There is a tree ahead of you.")
+      if "rope" in inventory:
+        print("Emma: You use your rope to climb the tree, but the branch your rope is attached to breaks. Nice climbing skills...")
+        health -= 5
+        print(f"Health: {health}") 
+      else:
+        print("Emma: You do not have any rope, so you cannot climb the tree. Carry on.")
+    elif x == 6 and y == 5: # ASSAULT
+      print("Emma: Look behind you!")
+      print("BAM!")
+      print("Emma: Oh no! You are suddenly hit in the back of the head. You whirl around and come face to face with a tall and mysterious figure! They try to take your money, but jokes on them, you do not have any.")
+      print("They leave you bleeding on the ground.")
+      health -= 3
+      print(f"Health: {health}")
+
+# Gisele's Code: MATH
+    elif x==6 and y==6:
+      print(math_message)
+      print("\nFirst question: What's 127256789 + 9879084321 = ?")
+      print("[1] 92748601701")
+      print("[2] 91739681010")
+      print("[3] 98918100110")
+      print("[4] 92848205410")
+      solution1 = int(input("solution1: "))
+      if solution1 == 3:
+        print("Congratulations, you get it right!")
+        health+=3
+        print(f"Health: {health}")
+      else:
+        print("Incorrect. The correct answer is 98918100110. Unlucky you but good try.")
+        health-=5
+        print(f"Health: {health}")
+    elif x==6 and y==1:
+      print(math_message)
+      
+      print("\nSecond question:Guess how many +10 fancy gisele potion is in the mountain?")
+      print("[1] 0")
+      print("[2] 2")
+      print("[3] 3")
+      print("[4] 6")
+      solution2 = int(input("solution2: "))
+      if solution2 == 2:
+        print("Congratulations, you get it right!")
+        health+=3
+        print(f"Health: {health}")
+      else:
+        print("Incorrect. The correct answer is 2. Unlucky you but good try.")
+        health-=5
+        print(f"Health: {health}")
+        
+    elif x==2 and y==8:
+      print(math_message)
+      print("\nLast question: Simplify 2a+2a-3b-8c")
+      print("[1] -7abc")
+      print("[2] -1ab-6ac")
+      print("[3] 4a-3b-8c")
+      print("[4] cannot simplify")
+      solution3 = int(input("solution3: "))
+      if solution3 == 3:
+        print("Congratulations, you get it right!")
+        health+=3
+        print(f"Health: {health}")
+      else: 
+        print("Incorrect. The correct answer is 4a-3b-8c. Unlucky you but good try.")
+        health-=5
+        print(f"Health: {health}")
+
+# Grace's Code
+          
+# +1 for finding a piece of food
+    elif (x == 2 and y == 2) or (x == 3 and y == 7) or (x == 5 and y == 4) or (x == 5 and y == 8): # +1 Food
+        print("Do you want to open it?: ")
+        print("\nA. Yes")
+        print("B. No")
+        user_choice=input().upper()
+
+        if user_choice.upper()=="A":
+            health+=1
+            print("\nCongratulations! You found a piece of food.")
+            print(f"Health: {health}")
+        elif user_choice.upper()== "B":
+            print("That’s too bad, you’ve lost a piece of food.")
+            print(f"Health: {health}")
+    
+# +3 for finding a treasure chest full of food
+    elif (x == 2 and y == 5) or (x == 6 and y == 4): # +3 Food
+        print("Do you want to open it?: ")
+        print("\nA. Yes")
+        print("B. No")
+        user_choice=input().upper()
+
+        if user_choice.upper()=="A":
+            health+=3
+            print("\nCongratulatons! You found a treasure chest full of food.")
+            print(f"Health: {health}")
+        elif user_choice.upper()== "B":
+            print("That's too bad, you've lost a treasure chest full of food.")
+            print(f"Health: {health}")
+
+# +5 finding and eating a magical fruit
+    elif (x == 2 and y == 6) or (x == 5 and y == 9) or (x == 7 and y == 4) or (x == 7 and y == 8) or (x == 8 and y == 7): # +5 Food
+        print("Do you want to find it?: ")
+        print("\nA. Yes")
+        print("B. No")
+        user_choice=input().upper()
+
+        if user_choice.upper()=="A":
+            health+=5
+            print("\nCongratulations! You found a magical fruit.")
+            print(f"Health: {health}")
+        elif user_choice.upper()=="B":
+            print("That's too bad, you've lost a magical fruit.")
+            print(f"Health: {health}")
+
+# +10 for finding the Fancy Gisele, a magic potion
+    elif (x == 4 and y == 3) or (x == 9 and y == 2): # +10 POTION
+      print("Emma: You see some potion-like liquid in a fancy bottle on the ground.")
+      print("Do you want to drink it?: ")
+      print("A. Yes")
+      print("B. No")
+      user_choice=input().upper()
+
+      if user_choice.upper()=="A":
+        health+=10
+        print("\nCongratulatons! You found Fancy Gisele, the magic potion.")
+        print(f"Health: {health}")
+      elif user_choice.upper()=="B":
+        print("Emma: That's too bad, you've lost a magic potion.")
+        print(f"Health: {health}")
+
+#Note: if statement with multiple coordinates in parentheses done by Emma
+# Lost health by:
+# -1 eating poisoned food
+    elif (x == 3 and y == 4) or (x == 4 and y == 9) or (x == 6 and y == 8) or (x == 8 and y ==3) or (x == 9 and y == 5): # -1 Food
+        print("You see some food. Would you like to eat it: ")
+        print("\nA. Yes")
+        print("B. No")
+        user_choice=input().upper()
+
+        if user_choice.upper()=="A":
+            health-=1
+            print("\nThe food makes your stomach hurt. Guess it was poisoned.")
+            print(f"Health: {health}")
+        elif user_choice.upper()=="B":
+            print("Oh well. Keep going then.")
+            print(f"Health: {health}")
+             
+# Emma's Code
+    if health <= 0: # DEATH
+      print(f"\nEmma: You have died. What a pity. I had fun seeing you struggle through this place. I have guided many through here, but I am not sure what happens when someone dies. My condolences to you. Farewell, {name}")
+      break      
+    if x == 10 and y == 10: # SUCCESS
+      print("\nSuccess! You have made it to the portal. Simply walk into it and you will be transported back home. Thank you for playing and congratulations. I hope I do not see you here again...")
+      break
